@@ -6,6 +6,8 @@ import ComponentsIntro from './2_ComponentsIntro';
 
 import PropsIntro from './3_PropsIntro';
 
+import StateIntro from './4_StateIntro';
+
 	export default class App extends Component {
 		render() {
 			return (
@@ -14,6 +16,7 @@ import PropsIntro from './3_PropsIntro';
 						<JSXIntro />
 						<ComponentsIntro />
 						<PropsIntro name="Chance the Rapper" title="Acid Rap" />
+						<StateIntro />
 					</div>
 				);
 		}
