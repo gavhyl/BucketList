@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import BandsReducer from './reducer-bands';
 
 	const rootReducer = combineReducers({
-		state: (state = {}) => state
+		bands: BandsReducer,
 	});
 
 	export default rootReducer;
