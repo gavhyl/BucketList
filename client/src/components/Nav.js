@@ -11,7 +11,7 @@ import {Navbar, Nav, NavItem, NavDropdown, DropdownButton, MenuItem, Collapsible
 							</Navbar.Brand>
 						</Navbar.Header>
 						<Nav>
-							<NavItem eventKey={1} href="#">Sign In</NavItem>
+							<NavItem eventKey={1} href="/signin">Sign In</NavItem>
 							<NavItem eventKey={2} href="#">Sign Up</NavItem>
 							<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
 								<MenuItem eventKey={3.1}>Action</MenuItem>
