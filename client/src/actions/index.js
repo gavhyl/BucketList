@@ -16,5 +16,10 @@ export function createPost(props) {
 export function signinUser({ email, password}){
 	return function(dispatch){
 		axios.post(`${ROOT_URL}/signin`, {email, password})
+			.then(response => {
+				browserHistory.push('/newitem');
+			})
+				.catch(() => {
+			});
 	}
 }

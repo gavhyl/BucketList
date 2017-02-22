@@ -9,7 +9,7 @@ function createUserToken(user){
 
 exports.signup = function(req, res, next){
 	//test 
-	res.send('authorization is happenin, yo');
+	//res.send('authorization is happenin, yo');
 		//console.log(req.body);
 		//1
 		var email = req.body.email;

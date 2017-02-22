@@ -4,9 +4,12 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = require('./router');
 var mongoose = require('mongoose');
+var cors = require('cors');
 
 //db connection
-mongoose.connect('mongodb://localhost:auth/mongotest');
+mongoose.connect('mongodb://localhost:bucket/bucket');
+
+app.use(cors());
 
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
