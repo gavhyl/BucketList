@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
+import { AUTH_USER, UNAUTH_USER } from './types';
+import authReducer from '../reducers/auth_reducer';
 
 export const CREATE_POSTS = 'CREATE_POSTS';
 
@@ -17,6 +20,9 @@ export function signinUser({ email, password}){
 	return function(dispatch){
 		axios.post(`${ROOT_URL}/signin`, {email, password})
 			.then(response => {
+				dispatch({ type: AUTH_USER });
+
+				localStorage.setItem('token', response.data.token);
 				browserHistory.push('/newitem');
 			})
 				.catch(() => {
