@@ -1,9 +1,11 @@
+var BucketList = require('../models/bucketlist');
+
 exports.addBucketList = function(req, res, next){
 	
-	var title = req.body.props.title;
-	var topic = req.body.props.topic;
-	var url = req.body.props.url;
-	var content = req.body.props.content;
+	var title = req.body.title;
+	var topic = req.body.topic;
+	var url = req.body.url;
+	var content = req.body.content;
 	var specificUser = req.user;
 
 	var bucketList = new BucketList({

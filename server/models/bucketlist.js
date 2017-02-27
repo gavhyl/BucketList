@@ -10,10 +10,10 @@ var BucketListSchema = new Schema({
 	},
 	url: {
 		type: String
-	}
+	},
 	content: {
 		type: String
-	}
+	},
 	specificUser: {
 		type: String
 	}
