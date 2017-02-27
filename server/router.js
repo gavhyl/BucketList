@@ -17,4 +17,6 @@ module.exports = function(app){
 	app.post('/newitem', requireAuth, BucketList.addBucketList);
 
 	app.get('/items', requireAuth, BucketList.fetchBucketLists);
+
+	app.delete('/items/:id', requireAuth, BucketList.deleteBucketList);
 };
