@@ -29,8 +29,8 @@ class ListItems extends Component {
 	renderItems() {
 		return this.state.posts.map((post) => {
 			return (
-					<li className="list-group-item" key={post.id}>
-						<Link to={"lists/" + post.id}>
+					<li className="list-group-item" key={post._id}>
+						<Link to={"items/" + post._id}>
 							<span className="pull-xs-left">{post.topic}</span>
 							<span className="pull-xs-right"><strong>{post.title}</strong></span>
 						</Link>

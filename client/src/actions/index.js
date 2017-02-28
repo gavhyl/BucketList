@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_POSTS } from './types';
+import { AUTH_USER, 
+	UNAUTH_USER, 
+	AUTH_ERROR, 
+	FETCH_POSTS, 
+	FETCH_POST, 
+	DELETE_POST } from './types';
 import authReducer from '../reducers/auth_reducer';
 
 var config = {
@@ -59,7 +64,7 @@ export function signupUser({ email, password }) {
 			dispatch({type: AUTH_USER });
 
 			localStorage.setItem('token', response.data.token);
-			browserHistory.push('/signup');
+			browserHistory.push('/newitem');
 		})
 		.catch(response => dispatch(authError(response.data.error)));
 	}
@@ -75,5 +80,32 @@ export function fetchPosts() {
 					payload: response
 				});
 			})
+	}
+}
+
+export function fetchPost(id) {
+	return function(dispatch) {
+		axios.get(`${ROOT_URL}/items/${id}`,config)
+			.then( (response) => {
+				console.log("Response", response)
+				dispatch({
+					type: FETCH_POST,
+					payload: response
+				});
+			});
+	}
+}
+
+export function deletePost(id) {
+	return function(dispatch) {
+		axios.delete(`${ROOT_URL}/items/${id}`,config)
+			.then( (response) => {
+				console.log("Response", response)
+				dispatch({
+					type: DELETE_POST,
+					payload: response
+				});
+				browserHistory.push('/items');
+			});
 	}
 }
