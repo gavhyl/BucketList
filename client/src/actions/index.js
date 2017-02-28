@@ -109,3 +109,17 @@ export function deletePost(id) {
 			});
 	}
 }
+
+export function updatePost(id) {
+	return function(dispatch) {
+		axios.update(`${ROOT_URL}/updateitem/${id}`, config)
+			.then( (response) => {
+				console.log("Response", response)
+				dispatch({
+					type: UPDATE_POST,
+					payload: response
+				});
+				browserHistory.push('/items');
+			});
+	}
+}

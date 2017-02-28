@@ -41,7 +41,7 @@ class ListItems extends Component {
 	render(){
 		if(this.state.posts == 0) {
 			return (
-					<div><h3>Still Loading...</h3></div>
+					<div><h3>No Posts</h3></div>
 				);
 		}else {
 			return (
