@@ -35,6 +35,19 @@ exports.fetchBucketLists =  function(req, res) {
 	);
 }
 
+exports.fetchBucketList =  function(req, res) {
+	var specificBucketList = req.params.id;
+	BucketList.findOne({_id: specificBucketList})
+	.then(
+		function fetchSuccess(data) {
+			res.json(data);
+		},
+		function fetchError(err) {
+			res.send(500, err.message);
+		}
+	);
+}
+
 exports.deleteBucketList = function(req, res) {
 	var specificBucketList = req.params.id;
 	BucketList.remove({_id: specificBucketList})
@@ -46,4 +59,17 @@ exports.deleteBucketList = function(req, res) {
 				res.send(500, err.message);
 			}
 		);
+}
+
+exports.updateBucketList = function(req, res) {
+	var specificBucketList = req.params.id;
+	BucketList.update({_id: specificBucketList})
+		.then(
+			function updateSuccess(data) {
+				res.json(data);
+			},
+			function updateError(err) {
+				res.send(500, err.message);
+			}
+		); 
 }
